@@ -1,6 +1,10 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {CartView} from './view';
 
 export function Cart() {
-  return <CartView />;
+  const [number, onChangeNumber] = useState('1');
+
+  useEffect(() => {}, [number]);
+
+  return <CartView number={number} onChangeNumber={onChangeNumber} />;
 }
