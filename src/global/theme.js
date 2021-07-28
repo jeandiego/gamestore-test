@@ -9,6 +9,7 @@ const GlobalStyle = {
     highlight: '#1B2438',
     heading: '#7E8AA4',
     off: '#D83D3A',
+    offlight: '#E99290',
     on: '#32BD50',
   },
 };
