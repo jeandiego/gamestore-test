@@ -13,7 +13,7 @@ import {
 } from './styles';
 import {gameCover} from '../../utils/images';
 
-export function ProductCard({products}) {
+export function PrimaryCard({products}) {
   const {image, name, score, price} = products;
 
   return (

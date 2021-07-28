@@ -1,3 +1,4 @@
+import {FlatList} from 'react-native';
 import styled from 'styled-components/native';
 
 export const Header = styled.View``;
@@ -11,4 +12,10 @@ export const Title = styled.Text`
   font-size: 28px;
   font-weight: bold;
   padding: 0px 24px;
+`;
+
+export const ProductsList = styled(FlatList).attrs({
+  paddingHorizontal: 24,
+})`
+  flex: 1;
 `;

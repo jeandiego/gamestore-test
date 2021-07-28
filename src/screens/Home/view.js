@@ -1,11 +1,9 @@
 import React from 'react';
-import {FlatList, View} from 'react-native';
 import GlobalContainer from '../../components/Common';
-import {Empty} from '../../components/Empty';
 import {FilterSelect} from '../../components/FilterSelect';
 import {HeaderHome} from '../../components/Header';
-import {ProductCard} from '../../components/ProductCard';
-import {Title, Header, FiltersMenu} from './styles';
+import {PrimaryCard} from '../../components/PrimaryCard';
+import {Title, Header, FiltersMenu, ProductsList} from './styles';
 
 export function HomeView(props) {
   const {filter, products, handleFilterSelect, handleHomeClick} = props;
@@ -19,15 +17,11 @@ export function HomeView(props) {
       <FiltersMenu>
         <FilterSelect filterSelected={filter} setFilter={handleFilterSelect} />
       </FiltersMenu>
-      <FlatList
+      <ProductsList
         data={products}
         keyExtractor={item => item.id}
-        style={{flex: 1}}
-        contentContainerStyle={{
-          paddingHorizontal: 24,
-        }}
         renderItem={({item}) => {
-          return <ProductCard products={item} />;
+          return <PrimaryCard products={item} />;
         }}
         showsVerticalScrollIndicator={false}
         numColumns={2}
