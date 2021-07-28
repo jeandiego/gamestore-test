@@ -1,21 +1,37 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {useNavigation} from '@react-navigation/native';
-import {Text, View} from 'react-native';
-import {RectButton} from 'react-native-gesture-handler';
+import {HomeView} from './view';
+import {getProducts} from '../../controller/products';
 
 export function Home() {
+  const [filter, setFilter] = useState('');
+  const [products, setProducts] = useState([]);
   const navigation = useNavigation();
 
   function handleHomeClick() {
     navigation.navigate('Cart');
   }
 
+  function handleFilterSelect(filterId) {
+    return filterId === filter ? setFilter('') : setFilter(filterId);
+  }
+
+  async function fetchProducts() {
+    const productsList = await getProducts();
+
+    setProducts(productsList);
+  }
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
   return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>Home Screen</Text>
-      <RectButton onPress={handleHomeClick}>
-        <Text>Go to Cart</Text>
-      </RectButton>
-    </View>
+    <HomeView
+      filter={filter}
+      products={products}
+      handleHomeClick={handleHomeClick}
+      handleFilterSelect={handleFilterSelect}
+    />
   );
 }

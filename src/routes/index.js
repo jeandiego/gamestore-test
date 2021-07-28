@@ -11,11 +11,7 @@ const {Navigator, Screen} = createStackNavigator();
 export function Routes() {
   return (
     <NavigationContainer>
-      <Navigator
-        headerMode="none"
-        screenOptions={{
-          cardStyle: {backgroundColor: 'transparent'},
-        }}>
+      <Navigator headerMode="none">
         <Screen name="Home" component={Home} />
         <Screen name="Cart" component={Cart} />
       </Navigator>
