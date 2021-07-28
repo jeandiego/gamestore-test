@@ -1,4 +1,4 @@
-[
+{ "products": [ 
   {
     "id": 312,
     "name": "Super Mario Odyssey",
@@ -62,4 +62,4 @@
     "score": 290,
     "image": "horizon-zero-dawn.png"
   }
-]
+]}
