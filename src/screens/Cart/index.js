@@ -1,10 +1,16 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
+import {useSelector} from 'react-redux';
 import {CartView} from './view';
 
 export function Cart() {
-  const [number, onChangeNumber] = useState('1');
+  const {items, quantity, ship, totalCart} = useSelector(store => store.cart);
 
-  useEffect(() => {}, [number]);
-
-  return <CartView number={number} onChangeNumber={onChangeNumber} />;
+  return (
+    <CartView
+      items={items}
+      quantity={quantity}
+      ship={ship}
+      totalCart={totalCart}
+    />
+  );
 }
