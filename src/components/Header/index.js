@@ -1,6 +1,5 @@
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
-
 import {
   Container,
   Content,
@@ -9,20 +8,27 @@ import {
   SubTitle,
   Button,
   Wrapper,
+  QuantityView,
+  QuantityText,
 } from './styles';
 import CartSvg from '../../assets/cart-icon.svg';
 import BackSvg from '../../assets/arrow-back.svg';
 import {Avatar} from '../Avatar';
 import {Empty} from '../Empty';
 
-export function HeaderHome({handleHomeClick}) {
+export function HeaderHome({handleHomeClick, quantity, ...props}) {
   const ProfilePic = 'https://github.com/jeandiego.png';
 
   return (
     <Container>
       <Content>
         <Avatar urlImage={ProfilePic} />
-        <Button onPress={handleHomeClick}>
+        <Button onPress={handleHomeClick} {...props}>
+          {quantity !== 0 && (
+            <QuantityView>
+              <QuantityText>{quantity}</QuantityText>
+            </QuantityView>
+          )}
           <CartSvg width={22} height={22} />
         </Button>
       </Content>
@@ -30,7 +36,7 @@ export function HeaderHome({handleHomeClick}) {
   );
 }
 
-export function HeaderCart({title}) {
+export function HeaderCart({title, quantity}) {
   const navigation = useNavigation();
 
   return (
@@ -41,7 +47,7 @@ export function HeaderCart({title}) {
         </Button>
         <Wrapper>
           <Title>{title}</Title>
-          <SubTitle>3 produtos</SubTitle>
+          <SubTitle>{quantity} produtos</SubTitle>
         </Wrapper>
         <Empty />
       </CenterContent>

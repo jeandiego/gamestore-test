@@ -1,9 +1,9 @@
 import React from 'react';
 import {Container, Title} from './styles';
 
-export function CheckoutButton({children}) {
+export function CheckoutButton({children, ...props}) {
   return (
-    <Container>
+    <Container {...props}>
       <Title>{children}</Title>
     </Container>
   );
