@@ -1,10 +1,10 @@
 import React from 'react';
 import {Container, BuyText} from './styles';
 
-export function BuyButton({title}) {
+export function BuyButton({children, ...props}) {
   return (
-    <Container>
-      <BuyText>{title}</BuyText>
+    <Container {...props}>
+      <BuyText>{children}</BuyText>
     </Container>
   );
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import {useDispatch} from 'react-redux';
 import {valueToPrice} from '../../utils/value';
 import {BuyButton} from '../BuyButton';
 import {
@@ -12,9 +13,15 @@ import {
   ScoreText,
 } from './styles';
 import {gameCover} from '../../utils/images';
+import {addItem} from '../../store/reducers/cart';
 
-export function PrimaryCard({products}) {
-  const {image, name, score, price} = products;
+export function PrimaryCard({product}) {
+  const {image, name, score, price} = product;
+  const dispatch = useDispatch();
+
+  function handleBuyClick() {
+    dispatch(addItem(product));
+  }
 
   return (
     <Container>
@@ -27,7 +34,7 @@ export function PrimaryCard({products}) {
           <ScoreText>({score})</ScoreText>
         </ScoreView>
         <PriceText>{valueToPrice(price)}</PriceText>
-        <BuyButton title="Comprar" />
+        <BuyButton onPress={handleBuyClick}>Comprar</BuyButton>
       </DetailView>
     </Container>
   );

@@ -7,17 +7,17 @@ export const AvatarBg = styled(RectButton)`
 `;
 
 export const Border = styled.View`
-  width: 40px;
-  height: 40px;
+  width: 46px;
+  height: 46px;
   border-radius: 92px;
-  border: 2px;
+  border: 4px;
   border-color: ${p => p.theme.colors.primary};
   justify-content: center;
   align-items: center;
 `;
 
 export const AvatarImage = styled.Image`
-  width: 36px;
-  height: 36px;
+  width: 42px;
+  height: 42px;
   border-radius: 92px;
 `;

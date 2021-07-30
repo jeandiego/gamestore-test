@@ -1,27 +1,40 @@
 import React from 'react';
-import {CartDescription} from '../../components/CartDescription';
-import {CheckoutButton} from '../../components/CheckoutButton';
+import {Checkout} from '../../components/Checkout';
 import GlobalContainer from '../../components/Common';
+import {Divider} from '../../components/Divider';
 import {HeaderCart} from '../../components/Header';
 import {SecondaryCard} from '../../components/SecondaryCard';
-import {Content, Footer, Divider, CartInfo} from './styles';
+import {EmptyCart} from '../../components/EmptyCart';
+import {CartList} from './styles';
 
-export function CartView({number, onChangeNumber}) {
+export function CartView({
+  number,
+  onChangeNumber,
+  items,
+  quantity,
+  ship,
+  totalCart,
+}) {
   return (
     <GlobalContainer>
-      <HeaderCart title="Meu carrinho" cart goBack />
-      <Content>
-        <SecondaryCard number={number} onChangeNumber={onChangeNumber} />
-        <Footer>
-          <CartInfo>
-            <CartDescription title="No carrinho:" value="R$ 109,50" />
-            <CartDescription title="Frete:" value="R$ 10,00" />
-            <Divider />
-            <CartDescription title="Total do pedido:" value="R$ 109,50" total />
-          </CartInfo>
-          <CheckoutButton>Finalizar compra</CheckoutButton>
-        </Footer>
-      </Content>
+      <HeaderCart title="Meu carrinho" cart goBack quantity={quantity} />
+      <CartList
+        data={items}
+        keyExtractor={item => item.id}
+        renderItem={({item}) => (
+          <SecondaryCard
+            number={number}
+            onChangeNumber={onChangeNumber}
+            product={item}
+          />
+        )}
+        showsVerticalScrollIndicator={false}
+        ListFooterComponent={
+          items.length > 0 && <Checkout ship={ship} totalCart={totalCart} />
+        }
+        ItemSeparatorComponent={() => <Divider />}
+        ListEmptyComponent={() => <EmptyCart />}
+      />
     </GlobalContainer>
   );
 }

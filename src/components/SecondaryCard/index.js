@@ -1,4 +1,5 @@
 import React from 'react';
+import {useDispatch} from 'react-redux';
 import {
   Container,
   ImageView,
@@ -14,36 +15,40 @@ import {
 
 import {valueToPrice} from '../../utils/value';
 import OptionButton from '../OptionButton';
+import {addItem, decreaseItem, removeItem} from '../../store/reducers/cart';
+import {gameCover} from '../../utils/images';
 
-export function SecondaryCard({number, onChangeNumber}) {
-  const data = {
-    id: 201,
-    name: 'Call Of Duty Infinite Warfare',
-    price: 49.99,
-    score: 80,
-    image: require('../../assets/call-of-duty-infinite-warfare.png'),
-  };
+export function SecondaryCard({product}) {
+  const dispatch = useDispatch();
+
+  function handleRemoveItem() {
+    dispatch(removeItem(product));
+  }
+
+  function didTouchAdd() {
+    dispatch(addItem(product));
+  }
+
+  function didTouchDecrease() {
+    dispatch(decreaseItem(product));
+  }
 
   return (
     <Container>
       <ImageView>
-        <GameImg source={data.image} resizeMode="cover" />
+        <GameImg source={gameCover.address[product.image]} resizeMode="cover" />
       </ImageView>
       <DetailView>
-        <ProductText>{data?.name}</ProductText>
-        <PriceText>{valueToPrice(data?.price)}</PriceText>
+        <ProductText>{product.name}</ProductText>
+        <PriceText>{valueToPrice(product.price * product.quantity)}</PriceText>
         <OptionsView>
           <ViewWrapper>
             <OptionWrapper>
-              <OptionButton type="decrease" />
-              <InputQuantity
-                onChangeText={onChangeNumber}
-                value={number}
-                keyboardType="numeric"
-              />
-              <OptionButton type="add" />
+              <OptionButton type="decrease" onPress={didTouchDecrease} />
+              <InputQuantity value={`${product.quantity}`} editable={false} />
+              <OptionButton type="add" onPress={didTouchAdd} />
             </OptionWrapper>
-            <OptionButton type="remove" />
+            <OptionButton type="remove" onPress={handleRemoveItem} />
           </ViewWrapper>
         </OptionsView>
       </DetailView>

@@ -5,6 +5,7 @@ import styled from 'styled-components/native';
 const IPHONE_BOTTOM_SPACE = getBottomSpace();
 
 export const Container = styled(RectButton)`
+  flex: 1;
   height: 56px;
   background-color: ${p => p.theme.colors.primary};
   align-items: center;
