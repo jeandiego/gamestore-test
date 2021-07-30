@@ -31,7 +31,7 @@ export function PrimaryCard({product}) {
       <DetailView>
         <ProductText numberOfLines={1}>{name}</ProductText>
         <ScoreView>
-          <ScoreText>({score})</ScoreText>
+          <ScoreText>{score} recomendam</ScoreText>
         </ScoreView>
         <PriceText>{valueToPrice(price)}</PriceText>
         <BuyButton onPress={handleBuyClick}>Comprar</BuyButton>
