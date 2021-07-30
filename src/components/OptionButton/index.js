@@ -5,25 +5,25 @@ import RemoveSvg from '../../assets/trash.svg';
 
 import {Container} from './styles';
 
-const AddButton = () => {
+const AddButton = props => {
   return (
-    <Container>
+    <Container {...props}>
       <PlusSvg width={18} height={18} />
     </Container>
   );
 };
 
-const DecreaseButton = () => {
+const DecreaseButton = props => {
   return (
-    <Container>
+    <Container {...props}>
       <DecreaseSvg width={18} height={18} />
     </Container>
   );
 };
 
-const RemoveButton = ({remove}) => {
+const RemoveButton = ({remove, ...props}) => {
   return (
-    <Container remove>
+    <Container remove {...props}>
       <RemoveSvg width={18} height={18} />
     </Container>
   );

@@ -1,7 +1,7 @@
 const GlobalStyle = {
   colors: {
     primary: '#E46845',
-    secondary: '#ECF0F3',
+    secondary: '#EBEBF0',
     background: '#FFFFFF',
 
     overlay: 'rgba(0,0,0,0.7)',
