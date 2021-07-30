@@ -3,7 +3,7 @@
 Aplicativo de teste para processo seletivo Supera Tecnologia. Uma loja virtual de jogos eletrônicos. Visualize produtos, filtre-os e adicione ao carrinho de compras.
 
 
-## Features 
+## ⚡️ Features 
 
 
 -   [ ] Permite adicionar um produto ao carrinho;
@@ -32,7 +32,7 @@ O layout do aplicativo foi baseado em uma versão do Product Designer Milliarta,
 
 
 
-## Executando o projeto
+## 💫 Executando o projeto
 
 Utilize o **yarn** ou o **npm install** para instalar as dependências do projeto.
 Em seguida, rode os seguintes comandos para buildar o projeto em simulador Android
