@@ -16,14 +16,14 @@ import BackSvg from '../../assets/arrow-back.svg';
 import {Avatar} from '../Avatar';
 import {Empty} from '../Empty';
 
-export function HeaderHome({handleHomeClick, quantity, ...props}) {
+export function HeaderHome({goToCart, goToProfile, quantity, ...props}) {
   const ProfilePic = 'https://github.com/jeandiego.png';
 
   return (
     <Container>
       <Content>
-        <Avatar urlImage={ProfilePic} />
-        <Button onPress={handleHomeClick} {...props}>
+        <Avatar urlImage={ProfilePic} onPress={goToProfile} />
+        <Button onPress={goToCart} {...props}>
           {quantity !== 0 && (
             <QuantityView>
               <QuantityText>{quantity}</QuantityText>

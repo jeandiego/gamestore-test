@@ -13,13 +13,18 @@ export function HomeView(props) {
     quantity,
     loading,
     handleFilterSelect,
-    handleHomeClick,
+    handleCartClick,
+    handleProfileClick,
   } = props;
 
   return (
     <GlobalContainer>
       <Header>
-        <HeaderHome handleHomeClick={handleHomeClick} quantity={quantity} />
+        <HeaderHome
+          goToCart={handleCartClick}
+          goToProfile={handleProfileClick}
+          quantity={quantity}
+        />
       </Header>
       <Title>Encontre seu jogo</Title>
       <FiltersMenu>
