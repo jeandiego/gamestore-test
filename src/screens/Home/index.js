@@ -21,8 +21,12 @@ export function Home() {
 
   const navigation = useNavigation();
 
-  function handleHomeClick() {
+  function handleCartClick() {
     navigation.navigate('Cart');
+  }
+
+  function handleProfileClick() {
+    navigation.navigate('Profile');
   }
 
   function handleFilterSelect(filterId) {
@@ -72,7 +76,8 @@ export function Home() {
       products={products}
       loading={loading}
       quantity={quantity}
-      handleHomeClick={handleHomeClick}
+      handleCartClick={handleCartClick}
+      handleProfileClick={handleProfileClick}
       handleFilterSelect={handleFilterSelect}
     />
   );

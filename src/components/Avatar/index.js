@@ -1,9 +1,9 @@
 import React from 'react';
 import {AvatarBg, AvatarImage, Border} from './styles';
 
-export function Avatar({urlImage}) {
+export function Avatar({urlImage, ...props}) {
   return (
-    <AvatarBg>
+    <AvatarBg {...props}>
       <Border>
         <AvatarImage source={{uri: urlImage}} />
       </Border>
