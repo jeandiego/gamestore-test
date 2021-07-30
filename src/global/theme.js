@@ -11,6 +11,8 @@ const GlobalStyle = {
     off: '#D83D3A',
     offlight: '#E99290',
     on: '#32BD50',
+    github: '#1B1F23',
+    linkedin: '#0074B5',
   },
 };
 
