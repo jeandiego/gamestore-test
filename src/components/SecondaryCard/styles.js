@@ -2,7 +2,6 @@ import {TextInput} from 'react-native';
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
-  flex: 1;
   margin: 0px 24px;
   border-radius: 8px;
   padding: 12px 0px;
