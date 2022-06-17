@@ -8,7 +8,7 @@ import store from './store';
 import './config/ReactotronConfig';
 import {MonitorState} from './controller/rules';
 
-const App = () => {
+const GamestoreApp = () => {
   useEffect(() => {
     MonitorState();
   }, []);
@@ -26,5 +26,7 @@ const App = () => {
     </Provider>
   );
 };
+
+const App = __DEV__ ? console.tron.overlay(GamestoreApp) : GamestoreApp;
 
 export default App;

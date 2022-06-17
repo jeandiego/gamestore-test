@@ -39,6 +39,8 @@ export function Home() {
     async function fetchProducts() {
       setLoading(true);
       const productsList = await getProducts();
+      console.tron.log(productsList);
+      console.log(productsList);
 
       dispatch(setProducts(productsList));
       dispatch(setDefaultProducts(productsList));
